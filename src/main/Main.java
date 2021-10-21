@@ -17,7 +17,7 @@ public class Main {
         char control = 's';
 
         do {
-
+            System.out.println("isso é teste");
             do {
                 System.out.println("-------------------------------------");
                 System.out.println("|        0 - Sair                   |");
