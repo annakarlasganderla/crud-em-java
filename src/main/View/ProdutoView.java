@@ -3,13 +3,14 @@ package main.View;
 import main.Controller.ProdutoController;
 import main.Model.Produto;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-
 public class ProdutoView {
 
-    Scanner leitor = new Scanner(System.in);
+    Scanner leitor = new Scanner(System.in).useDelimiter("\n").useLocale(Locale.US);
 
     public void cadastraProduto() throws IOException {
 
@@ -39,17 +40,61 @@ public class ProdutoView {
 
     }
 
-    public void editaProduto() {
+    public void editaProduto() throws IOException {
 
-        System.out.println("Escolha um produto para editar: ");
-        int opProduto = leitor.nextInt();  // usuário escolhe o produto
+        ProdutoController produtoController = new ProdutoController();
+
+        List<Produto> listaProdutos = produtoController.mostraListaProduto();
+
+        // mostro a lista de produtos
+        for (int i = 0; i < listaProdutos.size(); i++) {
+            System.out.println(listaProdutos.get(i));
+        }
+
+        System.out.println("Escolha qual produto você quer editar: ");
+
+        int opProduto = leitor.nextInt();
+        System.out.println(" 1 - Nome");
+        System.out.println(" 2 - Preço");
+
+        int opAtributo = leitor.nextInt();
+
+        switch (opAtributo) {
+            case 1:
+                listaProdutos.get(opProduto - 1).setNome(leitor.next());
+                break;
+
+            case 2:
+                listaProdutos.get(opProduto - 1).setPrice(leitor.nextDouble());
+                break;
+
+            default:
+                System.out.println("Opção inválida");
+        }
+
+        produtoController.editaProduto(listaProdutos);
 
     }
 
-    public void deletaProduto() {
+    public void deletaProduto() throws IOException {
 
-        System.out.println("Escolha um produto para deletar: ");
-        int opDelete = leitor.nextInt();  // usuário escolhe o produto
+        ProdutoController produtoController = new ProdutoController();
+
+        List<Produto> listaProdutos = produtoController.mostraListaProduto();
+
+        // mostro a lista de produtos
+        for (int i = 0; i < listaProdutos.size(); i++) {
+            System.out.println(listaProdutos.get(i));
+        }
+
+        System.out.println("Escolha qual produto você quer deletar: ");
+        int opDelete = leitor.nextInt();
+
+        listaProdutos.remove(opDelete - 1);
+
+        produtoController.deletaProduto(listaProdutos);
 
     }
+
+
 }

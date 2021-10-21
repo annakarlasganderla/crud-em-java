@@ -56,8 +56,34 @@ public class ProdutoDao {
         return produtos;
     }
 
-    public void editaProduto() {
+    public void editaProduto(List<Produto> prod) throws IOException {
 
+        FileWriter arquivoTxt = new FileWriter("C:\\Users\\sgand\\listaDeProdutos.txt",false);
+        PrintWriter gravaArq = new PrintWriter(arquivoTxt);
+
+        // l de lista
+        for (int l = 0; l < prod.size();l++ ) {
+            gravaArq.println(prod.get(l));
+        }
+
+        gravaArq.flush();
+        gravaArq.close();
+        arquivoTxt.close();
     }
 
+    public void deletaProduto(List<Produto> prod) throws IOException {
+
+        FileWriter arquivoTxt = new FileWriter("C:\\Users\\sgand\\listaDeProdutos.txt",false);
+        PrintWriter gravaArq = new PrintWriter(arquivoTxt);
+
+        for (int l = 0; l < prod.size();l++ ) {
+            gravaArq.println(prod.get(l));
+        }
+
+        gravaArq.flush();
+        gravaArq.close();
+        arquivoTxt.close();
+
+
+    }
 }

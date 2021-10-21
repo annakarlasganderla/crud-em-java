@@ -21,4 +21,16 @@ public class ProdutoController {
         return prods;
     }
 
+    public void editaProduto(List<Produto> listaDeProduto) throws IOException {
+
+        ProdutoDao prodDao = new ProdutoDao();
+        prodDao.editaProduto(listaDeProduto);
+
+    }
+
+    public void deletaProduto(List<Produto> listaDeProduto) throws IOException {
+        ProdutoDao prodDao = new ProdutoDao();
+        prodDao.deletaProduto(listaDeProduto);
+    }
+
 }
