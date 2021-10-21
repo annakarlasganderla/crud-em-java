@@ -1,4 +1,4 @@
-package sistema;
+package main.Model;
 
 public class Produto {
 
