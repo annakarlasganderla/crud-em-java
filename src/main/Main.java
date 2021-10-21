@@ -4,7 +4,6 @@ import main.Model.Produto;
 import main.View.MenuView;
 import main.View.ProdutoView;
 
-import javax.swing.*;
 import java.io.*;
 import java.util.*;
 

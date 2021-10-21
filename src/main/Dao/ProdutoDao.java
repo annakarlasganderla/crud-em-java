@@ -76,6 +76,7 @@ public class ProdutoDao {
         FileWriter arquivoTxt = new FileWriter("C:\\Users\\sgand\\listaDeProdutos.txt",false);
         PrintWriter gravaArq = new PrintWriter(arquivoTxt);
 
+        // percorre a lista
         for (int l = 0; l < prod.size();l++ ) {
             gravaArq.println(prod.get(l));
         }
